@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
-import ViewPage from './components/page/ViewPage'
-import EditPage from './components/page/EditPage'
+import ViewPage from './components/ViewPage'
+import WelcomePage from './components/WelcomePage'
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path='/page/:id' component={ViewPage}/>
-          <Route exact path='/edit' component={EditPage}/>
+          <Route exact path='/' component={WelcomePage}/>
+          <Route exact path='/page/:id?' component={ViewPage}/>
         </Switch>
       </BrowserRouter>
     );
