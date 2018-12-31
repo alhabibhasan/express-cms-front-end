@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Jumbotron, Table, Button} from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { BASE_API_URL } from '../../App';
 
 class ListPages extends Component {
   constructor(props) {
@@ -16,7 +18,7 @@ class ListPages extends Component {
   getPages() {
     axios({
       method: 'GET',
-      url: 'http://localhost:3000/api/pages'
+      url: BASE_API_URL + '/pages'
     })
     .then(pages => {
       this.setState({
@@ -32,6 +34,9 @@ class ListPages extends Component {
         <td>{page.description}</td>
         <td>{new Date(page.createdAt).toUTCString()}</td>
         <td>
+          <Button tag={Link} to={'/page/' + page.id} color="info">
+            View
+          </Button>
           <Button color="danger">
             Delete
           </Button>
